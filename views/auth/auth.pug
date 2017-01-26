@@ -1,0 +1,41 @@
+doctype html
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7
+//if IE 7
+  html.no-js.lt-ie9.lt-ie8
+//if IE 8
+  html.no-js.lt-ie9
+// [if gt IE 8] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title #{title} - NodeJS KickStart
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='The NodeJS KickStart, Great one for starting new NodeJS Project')
+    meta(name='keywords', content='NodeJS, NodeJS KickStart, Boilerplate, Node')
+    meta(name='author', content='Luc Duong')
+    meta(name='csrf-token', content=_csrf)
+    // Facebook and Twitter integration
+    meta(property='og:title', content='')
+    meta(property='og:image', content='')
+    meta(property='og:url', content='')
+    meta(property='og:site_name', content='')
+    meta(property='og:description', content='')
+    meta(name='twitter:title', content='')
+    meta(name='twitter:image', content='')
+    meta(name='twitter:url', content='')
+    meta(name='twitter:card', content='')
+    link(rel='shortcut icon', href='/favicon.ico')
+    // Bootstrap
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    link(rel='stylesheet', href='/css/signin.css')
+    //if lt IE 9
+      script(src='/js/respond.min.js')
+  body
+    block content
+    // jQuery
+    script(src='/js/jquery.min.js')
+    // Bootstrap
+    script(src='/js/bootstrap.min.js')

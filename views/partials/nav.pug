@@ -1,0 +1,28 @@
+.nav-header
+  a.js-fh5co-nav-toggle.fh5co-nav-toggle(href='#')
+    i
+  h1#fh5co-logo
+    a(href='/') NodeJS KickStart
+  nav#fh5co-menu-wrap(role='navigation')
+    ul#fh5co-primary-menu.sf-menu
+      li.active
+        a(href='/') Home
+      if !user
+        li
+          a(href='/signin') Sign In
+      li
+        a.fh5co-sub-ddown(href='portfolio') Work
+        ul.fh5co-sub-menu
+          li
+            a(href='http:/freehtml5.co/preview/?item=build-free-html5-bootstrap-template', target='_blank') Build
+          li
+            a(href='http:/freehtml5.co/preview/?item=work-free-html5-template-bootstrap', target='_blank') Work
+      li
+        a(href='/about') About
+      li
+        a(href='/blog') Blog
+      li
+        a(href='/contact') Contact
+      if user
+        li
+          a(href='/signout') Sign Out
