@@ -26,6 +26,7 @@ const chalk = require('chalk');
 const seeder = require('./helpers/seeder');
 const routes = require('./routes/routes');
 const apiRoutes = require('./routes/apiRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 
 const { ENV, PORT }  = require('./configs/constants');
 const env = process.env.NODE_ENV || ENV.DEV;
@@ -126,6 +127,7 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
  */
 app.use('/', routes);
 app.use('/api/', apiRoutes);
+app.use('/admin/', adminRoutes);
 
 /**
  * 404
