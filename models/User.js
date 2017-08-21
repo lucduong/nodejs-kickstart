@@ -7,18 +7,18 @@
 const bcrypt = require('bcrypt-nodejs');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+mongoose.plugin(require('../helpers/AppSchemaPlugin'));
 
 const userSchema = new mongoose.Schema({
   email: { type: String, unique: true },
   username: { type: String, unique: true },
   password: String,
+  admin: { type: Boolean, default: true },
 
   tokens: Array,
 
-  publish: { type: Boolean, default: true },
-  admin: { type: Boolean, default: false },
-  deleteFlag: { type: Boolean, default: false },
-  activeFlag: { type: Boolean, default: false },
+  roles: [{ type: Schema.ObjectId, ref: 'Role' }],
 
   profile: {
     name: String,
@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
     location: String,
     website: String,
     picture: String,
-  }
+  },
 }, { timestamps: true });
 
 /**

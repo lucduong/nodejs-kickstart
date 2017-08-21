@@ -27,6 +27,9 @@ const seeder = require('./helpers/seeder');
 const routes = require('./routes/routes');
 const apiRoutes = require('./routes/apiRoutes');
 const adminRoutes = require('./routes/adminRoutes');
+const passportConfig = require('./configs/passport');
+const RequireAuthenticated = passportConfig.isAuthenticated;
+const AdminMenuMiddleware = require('./helpers/AdminMenuMiddleware');
 
 const { ENV, PORT }  = require('./configs/constants');
 const env = process.env.NODE_ENV || ENV.DEV;
@@ -62,6 +65,7 @@ mongoose.connect(process.env.MONGODB_URI || process.env.MONGOLAB_URI, (error) =>
   }
 
   // Feed some data in DB
+  seeder.createMenus();
   seeder.createUsers();
 });
 
@@ -127,7 +131,7 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
  */
 app.use('/', routes);
 app.use('/api/', apiRoutes);
-app.use('/admin/', adminRoutes);
+app.use('/admin/', RequireAuthenticated, AdminMenuMiddleware, adminRoutes);
 
 /**
  * 404

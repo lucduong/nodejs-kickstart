@@ -10,6 +10,11 @@ exports.urls = {
   SIGN_UP: '/signup',
   SIGN_OUT: '/signout',
   FORGOT: '/forgot',
+
+  ADMIN: {
+    GET_USERS: '/users',
+    GET_MENUS: '/menus',
+  }
 };
 
 exports.api = {

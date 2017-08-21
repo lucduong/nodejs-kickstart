@@ -34,6 +34,7 @@
     "lusca": "^1.4.1",
     "method-override": "^2.3.7",
     "mongoose": "^4.7.7",
+    "mongoose-relationship": "^0.1.5",
     "morgan": "^1.7.0",
     "node-sass-middleware": "^0.11.0",
     "nodemailer": "^2.7.2",

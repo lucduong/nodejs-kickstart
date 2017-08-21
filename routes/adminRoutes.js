@@ -6,15 +6,13 @@
  */
 const express = require('express');
 const router = express.Router();
-const dashboardController = require('../controllers/DashboardController');
 const R = require('../configs/urls').urls;
 
-/**
- * API keys and Passport configuration.
- */
-const passportConfig = require('../configs/passport');
-const RequireAuthenticated = passportConfig.isAuthenticated;
+const dashboardController = require('../controllers/DashboardController');
+const userController = require('../controllers/UserController');
 
-router.get(R.ROOT, RequireAuthenticated, dashboardController.index);
+router.get(R.ROOT, dashboardController.index);
+router.get(R.ADMIN.GET_USERS, userController.getUsers);
+router.get(R.ADMIN.GET_MENUS, userController.getUsers);
 
 module.exports = router;

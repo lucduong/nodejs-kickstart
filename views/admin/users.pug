@@ -1,0 +1,42 @@
+extends layout
+
+block page_css
+  link(rel='stylesheet', href='/plugins/datatables/dataTables.bootstrap.css')
+
+block content
+  section.content
+    .row
+      .col-md-12
+        .box.box-success
+          .box-header
+            i.fa.fa-users
+            h3.box-title User List
+          .box-body
+            table#users.table.table-bordered.table-hover
+              thead
+                tr
+                  th # No.
+                  th Username
+                  th Full Name
+                  th Email
+                  th Others
+              tbody
+                each user, idx in users
+                  tr
+                    td= idx + 1
+                    td= user.username
+                    td= user.profile.name
+                    td= user.email
+                    td
+              tfoot
+                tr
+                  th # No.
+                  th Username
+                  th Full Name
+                  th Email
+                  th Others
+
+block page_script
+  script(src='/plugins/datatables/jquery.dataTables.min.js')
+  script(src='/plugins/datatables/dataTables.bootstrap.min.js')
+  script(src='/js/pages/users.js')
